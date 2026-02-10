@@ -42,6 +42,7 @@
     }
 
     /* Colores iniciales (se ajustarán en la actividad) */
+    /* botones ya editados para la actividad */
     #btnAdd { background-color: #2e7d32; color: white; } /* verde */
     #btnDel { background-color: #c62828; color: white; } /* rojo */
     #btnEdit { background-color: #1565c0; color: white; } /* azul */
@@ -168,7 +169,22 @@
     // =========================
 
     // Parte "Añadir tarea" (rama principal)
-    
+    function assTask(){
+      if(!text){
+        setStatus("No puedes añadir una tarea vacía.", "danger");
+        return;
+      }
+
+      task.push({
+        id: nextId++,
+        text: text,
+        done: false
+      })
+
+      clearInput();
+      setStatus("Tarea añadida correctamente.", "ok");
+      render();
+    }
 
     // Rama "eliminar"
     
